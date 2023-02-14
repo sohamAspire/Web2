@@ -53,6 +53,10 @@ function addData() {
 // Delete Data 
 function deleteAl(e) {
     e.parentElement.parentElement.remove();
+    var data = JSON.parse(localStorage.getItem("items"));
+    data.splice(e, 1);
+    localStorage.setItem('items',JSON.stringify(data))
+    e.parentElement.parentElement.remove();
 }
 // Delete Data 
 
