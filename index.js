@@ -68,5 +68,3 @@ function openMod(e) {
     return updating.classList.remove("disabled");
 }
 // Edit 
-
-
