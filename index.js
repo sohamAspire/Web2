@@ -23,6 +23,10 @@ function showData() {
 
 // Add Data 
 function addData() {
+
+    // Validation 
+
+    // Validation
     updating.classList.add("hide");
     if (localStorage.getItem("items") == null) {     
         var itemsArray = [];
@@ -40,6 +44,7 @@ function addData() {
     localStorage.setItem('items', JSON.stringify(itemsArray))
     data1 = JSON.parse(localStorage.getItem('items'));
     console.log(data1);
+    location.reload();
 }
 
 // Add Data 
@@ -68,6 +73,7 @@ function openMod(e , id) {
        }
        console.log(data);
        localStorage.setItem('items',JSON.stringify(data))
+       location.reload();
     })
 }
 
