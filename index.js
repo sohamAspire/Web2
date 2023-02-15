@@ -1,12 +1,13 @@
 const Email = document.getElementById('inputEmail4');
+const myForm  = document.getElementById('myForm') 
 const Password = document.getElementById('inputPassword4');
+const updating = document.getElementById("updating");
 
-// localStorage.clear();
-var itemsArray = [];
+updating.classList.add("hide");
+
 
 // Onload 
 function showData() {
-    updating.classList.add("hide")
     data1 = JSON.parse(localStorage.getItem('items'));
     console.log(data1);
     data1.forEach((i , index) => {
@@ -22,6 +23,14 @@ function showData() {
 
 // Add Data 
 function addData() {
+    updating.classList.add("hide");
+    if (localStorage.getItem("items") == null) {     
+        var itemsArray = [];
+    }
+    else{
+        var itemsArray = JSON.parse(localStorage.getItem("items"))
+    }
+
     userdetail = {
         Email: Email.value,
         Password: Password.value
@@ -47,7 +56,7 @@ function deleteAl(e ,ind) {
 
 // Edit 
 function openMod(e , id) {
-    updating.classList.remove("hide")
+    updating.classList.remove("hide");
     Email.value = e.parentElement.parentElement.cells[0].innerHTML;
     Password.value = e.parentElement.parentElement.cells[1].innerHTML;
     btn = document.getElementById("updating");
@@ -61,3 +70,5 @@ function openMod(e , id) {
        localStorage.setItem('items',JSON.stringify(data))
     })
 }
+
+// Edit 
