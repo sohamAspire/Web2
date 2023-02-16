@@ -1,11 +1,12 @@
 const Email = document.getElementById('inputEmail4');
 const myForm  = document.getElementById('myForm') 
 const Password = document.getElementById('inputPassword4');
-const updating = document.getElementById("updating");
 
-updating.classList.add("hide");
-
-
+function openmodal() {
+    document.getElementById("updating").style.display = "none";
+    document.getElementById("adding").style.display = "block";
+    myForm.reset();
+}
 // Onload 
 function showData() {
     data1 = JSON.parse(localStorage.getItem('items'));
@@ -61,7 +62,8 @@ function deleteAl(e ,ind) {
 
 // Edit 
 function openMod(e , id) {
-    updating.classList.remove("hide");
+    document.getElementById("updating").style.display = "block";
+    document.getElementById("adding").style.display = "none";
     Email.value = e.parentElement.parentElement.cells[0].innerHTML;
     Password.value = e.parentElement.parentElement.cells[1].innerHTML;
     btn = document.getElementById("updating");
